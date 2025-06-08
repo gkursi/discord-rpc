@@ -162,9 +162,10 @@ public final class DiscordRPC {
 
 		finalPath = "/" + dir + "/" + name;
 
+		File f = null;
 		try {
 			Path tempDirectoryPath = Files.createTempDirectory("drpc");
-			File f = new File(tempDirectoryPath + File.separator + name);
+			f = new File(tempDirectoryPath + File.separator + name);
 
 			try (InputStream in = DiscordRPC.class.getResourceAsStream(finalPath); OutputStream out = openOutputStream(f)) {
 				copyFile(in, out);
